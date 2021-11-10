@@ -1,0 +1,26 @@
+<div class="container">
+<h1>Restaurant</h1>
+<p>
+<h2><%= "#{@restaurant.name} - #{@restaurant.category}" %></h2>
+</p>
+<p>
+<h4>Our address is <%= @restaurant.address %></h4>
+</p>
+<p>
+<h4>You can call us here: <%= @restaurant.phone_number %></h4>
+</p>
+<h2>Reviews:</h2>
+<p>
+<ul>
+<% @restaurant.reviews.each do |restaurant| %>
+<li><%= "#{restaurant.content} -- #{restaurant.rating}"%></li>
+<% end %>
+</ul>
+</p>
+<p>
+</p>
+<%= render "reviews/form", review: @restaurant.reviews %>
+<p>
+<%= link_to "Back to all restaurants", restaurants_path %>
+</p>
+</div>
